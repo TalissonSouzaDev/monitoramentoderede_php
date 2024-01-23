@@ -1,0 +1,46 @@
+.monitoramento-list{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+
+}
+.card {
+    margin-bottom: 15px;
+}
+
+
+
+.container-cadastro
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 10em 30em;
+    min-width: 600px;
+}
+.container-cadastro > h1 {
+    margin-bottom: 15px;
+    color: #176B87;
+}
+
+.card-cadastro {
+    
+    border: 1px solid transparent;
+    box-shadow: 10px 5px 25px #176B87;
+    min-width: 100%;
+    height: 50vh;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 2em;
+}
+
+.card-cadastro > form > div > input,textarea,button {
+    width: 500px;
+}
+.table-condensed {
+    margin: 2em 10em;
+}
