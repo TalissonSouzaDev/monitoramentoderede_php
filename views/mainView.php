@@ -9,4 +9,10 @@ class mainView
         include("pages/".$file.".php");
         include("template/footer.php");
     }
+
+    public static function redirect($back = '/Monitoramento/index')
+    {
+        header("location:{$back}");
+
+    }
 }

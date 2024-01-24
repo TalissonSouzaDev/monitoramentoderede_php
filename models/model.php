@@ -1,7 +1,10 @@
 <?php
 namespace models;
 
-class model
+use Exception;
+use models\interfaces\ModelInterface;
+
+class model implements ModelInterface
 {
 
     public static function Selectall(string $sql): array
@@ -13,16 +16,69 @@ class model
     
     }
 
+    public static function FindByid(string $tabela,int $id): array {
+      $findbyid = [];
+
+      $sql = \MySql::conectar()->prepare("SELECT * FROM ".$tabela." WHERE id = :id");
+      $sql->bindParam(":id",$id);
+      $sql->execute();
+      if($sql->rowCount() == 1)
+      {
+         $findbyid =  $sql->fetch();
+         return $findbyid;
+      }
+      return $findbyid;
+      
+
+    }
+
   
-    public static function create($tabela,$campos = [])
+    public static function create($tabela,$campos = []): bool
     {
-       // print_r($campos);exit;
-   
-            $sql = "INSERT INTO ".$tabela." VALUES (NULL, '{$campos[0]}', '{$campos[1]}', '{$campos[2]}', '{$campos[3]}')";
-            $stmt = \MySql::conectar()->prepare($sql);
-            $condicao = $stmt->execute();
+       try
+       {
+         $sql = "INSERT INTO ".$tabela." VALUES (NULL, '{$campos[0]}', '{$campos[1]}', '{$campos[2]}', '{$campos[3]}')";
+         $stmt = \MySql::conectar()->prepare($sql);
+         $stmt->execute();
+         return true;
+       }
+       catch(Exception $e)
+       {
+         return false;
+       }
             
-       // INSERT INTO `networks` (`id`, `origem`, `network`, `descricao`, `user`) VALUES (NULL, 'Servidor SGCHA', '172.24.196.200', 'sistema de chamado', '1');
+     
+    }
+
+    public static function update(string $tabela,array $campos, int $id): bool
+    {
+      try
+      {
+        $sql = "UPDATE ".$tabela." SET   WHERE id =:id";
+        $stmt = \MySql::conectar()->prepare($sql);
+        $stmt->bindParam(":id",$id);
+        $stmt->execute();
+        return true;
+      }
+      catch(Exception $e)
+      {
+        return false;
+      }
+    }
+
+    public static function delete(string $tabela , int $id): bool
+    {
+      try
+      {
+         $sql = \MySql::conectar()->prepare("DELETE FROM ".$tabela." WHERE id = :id");
+         $sql->bindParam(":id",$id);
+         $sql->execute();
+         return true;
+      }
+     catch(Exception $e)
+     {
+      return false;
+     }
     }
 
 }

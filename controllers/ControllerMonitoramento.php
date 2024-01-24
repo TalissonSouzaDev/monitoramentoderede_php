@@ -1,5 +1,7 @@
 <?php
 namespace Controllers;
+
+use Exception;
 use models\Network;
 
 class ControllerMonitoramento extends Controller
@@ -16,14 +18,45 @@ class ControllerMonitoramento extends Controller
         return $this->view->render("Monitoramento/index");
     }
 
-    public function create()
+    public function store(array $data)
     {
-        return $this->view->render("monitoramento");
+        
+     try{
+        
+        $create = Network::create("networks",$data);
+        if($create)
+        {
+            // rota principal sera o /Monitoramento/index
+            return $this->view->redirect();
+        }
+        return $this->view->redirect();
+     }
+     catch(Exception $e)
+     {
+        return $this->view->render("Monitoramento/monitoramento");
+     }
+  
+        
     }
 
     public function edit()
     {
         return $this->view->render("monitoramento");
+    }
+
+
+    public function destroy(int $id)
+    {
+       $findId =  Network::FindByid("networks",$id);
+       $destroy =  Network::delete("networks",$findId['id']);
+       if($destroy)
+       {
+        return $this->view->redirect();
+       }
+       return $this->view->redirect();
+
+       
+       
     }
 }
 

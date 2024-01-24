@@ -9,10 +9,7 @@
    <?php 
       $select = Network::Selectall("SELECT * FROM networks");
    foreach($select as $query):?>
-   <?php
-   
-  exec("ping -n 1 ".$query['network'],$output,$status);
-   ?>
+   <?php $status = Network::AnaliseNetWork($query['network']); ?>
    <div class="card <?= $status == 0 ? "bg-success" : "bg-danger" ?> text-white">
     <div class="card-body">
       <span><?= $query['origem']?></span><br>
