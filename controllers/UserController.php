@@ -4,18 +4,18 @@ namespace Controllers;
 use Exception;
 use models\Network;
 
-class ControllerMonitoramento extends Controller
+class UserController extends Controller
 {
-
-    public function monitoramento()
-    {
-        return $this->view->render("Monitoramento/monitoramento");
-    }
-
     public function index()
     {
 
-        return $this->view->render("Monitoramento/index");
+        return $this->view->render("User/index");
+    }
+
+    public function profile()
+    {
+
+        return $this->view->render("User/profile");
     }
 
     public function store(array $data)

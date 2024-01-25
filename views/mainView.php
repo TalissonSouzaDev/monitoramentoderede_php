@@ -1,8 +1,11 @@
 <?php
 namespace Views;
 
+use models\traits\TraitGlobal;
+
 class mainView 
 {
+    use TraitGlobal;
     public static function render($file,$path = [])
     {
         include("template/header.php");

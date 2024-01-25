@@ -44,3 +44,16 @@
 .table-condensed {
     margin: 2em 10em;
 }
+
+.container-user-profile{
+    margin-left: 400px;
+    margin-top: 200px;
+
+}
+.form-group
+{
+    margin-bottom: 15px;
+}
+.card{
+    min-width: 800px;
+}

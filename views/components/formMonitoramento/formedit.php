@@ -15,7 +15,8 @@
         <h5 class="modal-title" id="exampleModalLabel">Edita de Network <?=  $edinetwork['origem']  ?></h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-        <form action="monitaramento/post" method="post">
+        <form action="monitaramento/update" method="post">
+          <input type="hidden" name="id" value="<?=$edinetwork['id'] ?>">
         <div class="modal-body">
         <div class="form-control">
           <label for="">Origem</label>
@@ -34,7 +35,7 @@
        
       </div>
       <div class="modal-footer">
-        <button type="submit" class="btn btn-success">Salva</button>
+        <button type="submit" class="btn btn-success">Atualizar</button>
         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Sair</button>
       </div>
         </form>

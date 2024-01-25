@@ -7,7 +7,15 @@ define("PASSWORD","");
 
 $autoload = function($class)
 {
-    include($class.'.php');
+    if(!file_exists($class))
+    {
+        include($class.'.php');
+    }
+    else
+    {
+        throw new Exception('Arquivo não encontrado');
+    }
+ 
 };
 
 spl_autoload_register($autoload);

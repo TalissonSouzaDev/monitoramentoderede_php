@@ -1,0 +1,69 @@
+
+
+.card-login-container{
+    display: flex;
+    justify-content: center;
+    padding-top: 9em;
+    background-color: rgb(244, 250, 248);
+    height: 100vh;
+    
+}
+.card_login{
+    background-color: rgb(226, 232, 238);
+    width: 25vw;
+    height: 60vh;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding-top: 12em;
+    padding-left: 5em;
+}
+
+.card_login > form div
+{
+    margin: 10px 0px;
+}
+.card_login > form div input, form input{
+    width: 80%;
+    height: 40px;
+    outline: rgb(15, 60, 105);
+    border-radius: 5px;
+    padding-left: 5px;
+}
+
+.card_login > form>div>input::placeholder
+{
+    padding-left: 10px;
+}
+
+
+.card_login form > input{
+  background-color: rgb(15, 60, 105);
+  color: #fff;
+  font-size: 18px;
+}
+.card_login form > input:hover 
+{
+    background-color: rgb(21, 83, 145) ;
+}
+.card-logo-login{
+    background-color: rgb(15, 60, 105);
+    width: 40vw;
+    height: 60vh;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-logo-login > span > i {
+    font-size: 10em;
+    margin-bottom: 10px;
+}
+
+.card-logo-login > p {
+    font-size: 25px;
+    margin-bottom: 10px;
+}
